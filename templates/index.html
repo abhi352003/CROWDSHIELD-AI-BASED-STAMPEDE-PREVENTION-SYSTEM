@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crowd Monitoring Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Crowd Monitoring Dashboard</h1>
+
+    <!-- 🔹 Video Feed -->
+    <section class="section video-section">
+      <h2>🎥 Live Video Feed</h2>
+      <div class="video-box">
+        <img src="{{ url_for('video_feed') }}" id="videoFeed" alt="Live Video Stream">
+      </div>
+    </section>
+
+    <!-- 🔹 Live Data Panel -->
+    <section class="section stats-section">
+      <h2>📊 Live Stats</h2>
+      <div class="data-box">
+        <p><b>Time:</b> <span id="time">--</span></p>
+        <p><b>Crowd Count:</b> <span id="crowd">--</span></p>
+        <p><b>Violations:</b> <span id="violations">--</span></p>
+        <p><b>Restricted Entry:</b> <span id="restricted">--</span></p>
+        <p><b>Abnormal Activity:</b> <span id="abnormal">--</span></p>
+      </div>
+    </section>
+
+    <!-- 🔹 Realtime Charts -->
+    <section class="section chart-section">
+      <h2>📈 Crowd Trend</h2>
+      <canvas id="crowdChart" width="600" height="250"></canvas>
+    </section>
+
+    <!-- 🔹 Image Outputs -->
+    <section class="section analysis-section">
+      <h2>🧠 Real-Time Analysis</h2>
+      <div class="image-grid">
+        <div class="img-card">
+          <h3>🔥 Movement Heatmap</h3>
+          <img id="heatmapImg" src="/heatmap" alt="Heatmap">
+        </div>
+        <div class="img-card">
+          <h3>👥 Crowd Activity Graph</h3>
+          <img id="crowdPlotImg" src="/crowd_plot" alt="Crowd Plot">
+        </div>
+        <div class="img-card">
+          <h3>⚡ Energy Level Distribution</h3>
+          <img id="energyImg" src="/energy_plot" alt="Energy Plot">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="/static/script.js"></script>
+</body>
+</html>
